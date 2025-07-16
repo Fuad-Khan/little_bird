@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block content %}
+<h2>{% trans "Welcome to Little Bird" %} 🐦</h2>
+
+<form method="get" action="#">
+  <select name="area">
+    <option value="">{% trans "Select Area" %}</option>
+    {% for area in areas %}
+      <option value="{{ area.id }}">{{ area.name }}</option>
+    {% endfor %}
+  </select>
+
+  <select name="category">
+    <option value="">{% trans "Select Category" %}</option>
+    {% for cat in categories %}
+      <option value="{{ cat.id }}">{{ cat.name }}</option>
+    {% endfor %}
+  </select>
+
+  <button type="submit">{% trans "Search" %}</button>
+</form>
+
+<section>
+  <h3>{% trans "Top Services" %}</h3>
+  <div class="services">
+    {% for service in services %}
+      <div class="card">
+        {% if service.image %}
+          <img src="{{ service.image.url }}" alt="{{ service.title }}">
+        {% endif %}
+        <h4>{{ service.title }}</h4>
+        <p>{{ service.price }}৳</p>
+        <p>{{ service.description|truncatewords:15 }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

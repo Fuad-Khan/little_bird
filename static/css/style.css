@@ -1,0 +1,4 @@
+body { font-family: sans-serif; padding: 2rem; }
+nav { display: flex; justify-content: space-between; margin-bottom: 1.5rem; }
+.services { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+.card { border: 1px solid #ccc; padding: 1rem; border-radius: 10px; }

@@ -1,0 +1,11 @@
+{% load i18n %}
+<nav>
+  <h1><a href="/">{% trans "Little Bird" %}</a></h1>
+  <form action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <select name="language" onchange="this.form.submit()">
+      <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+      <option value="bn" {% if LANGUAGE_CODE == 'bn' %}selected{% endif %}>বাংলা</option>
+    </select>
+  </form>
+</nav>
